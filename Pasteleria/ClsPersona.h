@@ -14,7 +14,7 @@ public:
     void setID (int id);
     void setNombre (const char *nombre);
     void setDomicilio (const char *domicilio);
-    void setTelefono (int teléfono);
+    void setTelefono (int telÃ©fono);
     void setEstado (bool estado);
     int getID ();
     const char *getNombre ();
