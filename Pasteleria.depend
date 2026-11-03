@@ -1,0 +1,19 @@
+# depslib dependency file v1.0
+1792585705 source:c:\users\pilar\desktop\pasteleria\clsproductos.cpp
+	<iostream>
+
+1792586742 source:c:\users\pilar\desktop\pasteleria\main.cpp
+	<iostream>
+
+1792586755 source:c:\users\pilar\desktop\pasteleria\clsfecha.cpp
+	<iostream>
+	"ClsFecha.h"
+
+1792585705 c:\users\pilar\desktop\pasteleria\clsfecha.h
+
+1792586767 source:c:\users\pilar\desktop\pasteleria\menues.cpp
+	<iostream>
+	"Menues.h"
+
+1792586742 c:\users\pilar\desktop\pasteleria\menues.h
+
