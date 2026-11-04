@@ -1,6 +1,6 @@
 #ifndef ARCHIVOCLIENTES_H_INCLUDED
 #define ARCHIVOCLIENTES_H_INCLUDED
-#include "ClsClientes.h"
+#include "ClsCliente.h"
 
 class ArchivoClientes{
 private:
