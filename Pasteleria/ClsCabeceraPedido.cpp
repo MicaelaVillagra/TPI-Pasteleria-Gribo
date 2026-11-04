@@ -1,5 +1,5 @@
 #include <iostream>
-#include "ClsCabeceraPedidos.h"
+#include "ClsCabeceraPedido.h"
 #include <cstring>
 
 using namespace std;
