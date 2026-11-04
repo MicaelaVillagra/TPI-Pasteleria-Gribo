@@ -48,6 +48,7 @@
 		<Unit filename="ClsDetallePedido.h" />
 		<Unit filename="ClsDetallePedido.h" />
 		<Unit filename="ClsEmpleado.h" />
+		<Unit filename="ClsPersona.cpp" />
 		<Unit filename="ClsPersona.h" />
 		<Unit filename="ClsProducto.h" />
 		<Unit filename="Fecha.cpp" />
