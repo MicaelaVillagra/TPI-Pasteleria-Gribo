@@ -13,12 +13,14 @@ private:
     char _metodoPago[20];
     bool _estado;
 public:
+    void setIDPedido (int id);
     void setIDCabecera(int id);
     void setIDEmpleado (int id);
     void setIDCliente (int id);
     void setFechaEncargo(Fecha f);
     void setMetodoPago(const char *m);
     void setEstado (bool estado);
+    int getIDPedido ();
     int getIDCabecera ();
     int getIDEmpleado ();
     int getIDCliente ();
