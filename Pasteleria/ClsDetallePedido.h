@@ -11,11 +11,13 @@ private:
     float _precio;
     bool _estado;
 public:
+    void setIDPedido (int id);
     void setIDDetalle(int id);
     void setIDProducto(int id);
     void setCantidad(int cantidad);
     void setPrecio(float precio);
     void setEstado (bool estado);
+    int getIDPedido();
     int getIDDetalle ();
     int getIDProducto ();
     int getCantidad ();
