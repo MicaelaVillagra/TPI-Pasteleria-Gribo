@@ -15,7 +15,7 @@ if (anio%400==0){
 }
 }
 
-int Fecha ::DiasDelMes(int mes, int anio){
+int Fecha::DiasDelMes(int mes, int anio){
 switch (mes){
 case 1: case 3: case 5: case 7: case 8: case 10: case 12:
     return 31;
@@ -69,7 +69,7 @@ void Fecha::setDia(int d)
     cout << "Dia invalido, no se modifico la fecha. "<< endl;
 }}
 
-void Fecha :: setMes (int m){
+void Fecha::setMes (int m){
 if (EsValida(_dia, m, _anio)== true) {
 _mes = m;}
 else {
@@ -77,7 +77,7 @@ else {
 }
 }
 
-void Fecha :: setAnio (int a){
+void Fecha::setAnio (int a){
 if (EsValida(_dia, _mes, a)== true) {
 _anio = a;}
 else {
