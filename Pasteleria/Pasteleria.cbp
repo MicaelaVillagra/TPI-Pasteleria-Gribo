@@ -46,6 +46,7 @@
 		<Unit filename="ClsCabeceraPedido.h" />
 		<Unit filename="ClsCliente.h" />
 		<Unit filename="ClsDetallePedido.h" />
+		<Unit filename="ClsDetallePedido.h" />
 		<Unit filename="ClsEmpleado.h" />
 		<Unit filename="ClsPersona.h" />
 		<Unit filename="ClsProducto.h" />
