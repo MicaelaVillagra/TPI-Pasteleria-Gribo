@@ -1,6 +1,6 @@
 #ifndef ARCHIVOPRODUCTOS_H_INCLUDED
 #define ARCHIVOPRODUCTOS_H_INCLUDED
-#include "ClsProductos.h"
+#include "ClsProducto.h"
 
 class ArchivoProductos{
 private:
