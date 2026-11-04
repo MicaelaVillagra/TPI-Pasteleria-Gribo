@@ -1,6 +1,6 @@
 #ifndef ARCHIVOCABECERAPEDIDOS_H_INCLUDED
 #define ARCHIVOCABECERAPEDIDOS_H_INCLUDED
-#include "ClsCabeceraPedidos.h"
+#include "ClsCabeceraPedido.h"
 
 class ArchivoCabeceraPedidos{
 private:
