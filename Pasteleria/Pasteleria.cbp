@@ -42,6 +42,7 @@
 		<Unit filename="ArchivoEmpleados.h" />
 		<Unit filename="ArchivoProductos.cpp" />
 		<Unit filename="ArchivoProductos.h" />
+		<Unit filename="ClsCabeceraPedido.cpp" />
 		<Unit filename="ClsCabeceraPedido.h" />
 		<Unit filename="ClsCliente.h" />
 		<Unit filename="ClsDetallePedido.h" />
