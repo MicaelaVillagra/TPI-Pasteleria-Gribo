@@ -4,16 +4,16 @@
 
 using namespace std;
 
-ArchivoCabeceraPedidos::ArchivoCabeceraPedidos(const char *n="ArchivoCabeceraPedidos.dat"){
+ArchivoCabeceraPedidos::ArchivoCabeceraPedidos(const char *n){
     strcpy(_nombre,n);
 }
 
-Cabecera ArchivoCabeceraPedidos::leerRegistro(int pos){
+CabeceraPedido ArchivoCabeceraPedidos::leerRegistro(int pos){
     FILE *p=fopen(_nombre,"rb");
-    Cabecera obj;
+    CabeceraPedido obj;
     if (p==nullptr){
         cout<<"NO SE PUEDE."<<endl;
-        obj.setID(-1);
+        obj.setIDCabecera(-1);
         return obj;
     }
     fseek(p,pos * sizeof obj, 0);
@@ -31,9 +31,9 @@ int ArchivoCabeceraPedidos::contarRegistro(){
     fseek(p, 0, 2);
     int bytes = ftell(p);
     fclose(p);
-    return bytes/sizeof(Cabecera);
+    return bytes/sizeof(CabeceraPedido);
 }
-bool ArchivoCabeceraPedidos::grabarRegistro(Cabecera obj){
+bool ArchivoCabeceraPedidos::grabarRegistro(CabeceraPedido obj){
     FILE *p = fopen(_nombre, "ab");
     if(p == nullptr){
         return false;
@@ -42,16 +42,16 @@ bool ArchivoCabeceraPedidos::grabarRegistro(Cabecera obj){
     fclose(p);
     return escribio;
 }
-int ArchivoCabeceraPedidos::buscarRegistro(int leg){
+int ArchivoCabeceraPedidos::buscarRegistro(int id){
     int cantReg = contarRegistro();
     for(int i=0; i<cantReg; i++){
-        Cabecera obj = leerRegistro(i);
-        if(obj.getID() == id) return i;
+        CabeceraPedido obj = leerRegistro(i);
+        if(obj.getIDCabecera() == id) return i;
     }
     return -1;
 }
 
-bool ArchivoCabeceraPedidos::modificarRegistro(Cabecera obj, int pos){
+bool ArchivoCabeceraPedidos::modificarRegistro(CabeceraPedido obj, int pos){
     FILE *p = fopen(_nombre, "rb+");
 
     if(p == nullptr){
@@ -66,7 +66,7 @@ bool ArchivoCabeceraPedidos::modificarRegistro(Cabecera obj, int pos){
 void ArchivoCabeceraPedidos::listarReg(){
     int cantReg = contarRegistro();
     for(int i=0; i<cantReg; i++){
-        Cabecera obj = leerRegistro(i);
+        CabeceraPedido obj = leerRegistro(i);
         if(obj.getEstado()){
             obj.Mostrar();
             cout<<"======================="<<endl;
@@ -84,7 +84,7 @@ void ArchivoCabeceraPedidos::bajaRegistro(){
         cout<<"NO EXISTE ESA ID EN EL ARCHIVO"<<endl;
         return;
     }
-    Cabecera obj = arc.leerRegistro(pos);
+    CabeceraPedido obj = arc.leerRegistro(pos);
     obj.setEstado(false);
     arc.modificarRegistro(obj, pos);
 }

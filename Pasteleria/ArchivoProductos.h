@@ -1,18 +1,20 @@
 #ifndef ARCHIVOPRODUCTOS_H_INCLUDED
 #define ARCHIVOPRODUCTOS_H_INCLUDED
-#include "clsProducto.h"
+#include "ClsProductos.h"
 
 class ArchivoProductos{
 private:
     char _nombre[30];
 
 public:
-    ArchivoProductos(const char *n="ArchivoProductos.dat");
-    Producto leerRegistro(int pos);
+    ArchivoProductos(const char *n="Productos.dat");
+    Productos leerRegistro(int pos);
     int contarRegistro();
-    bool grabarRegistro(Producto obj);
-    int buscarRegistro(int leg);
+    bool grabarRegistro(Productos obj);
+    int buscarRegistro(int id);
+    bool modificarRegistro(Productos obj, int pos);
     void listarReg();
+    void bajaRegistro();
 };
 
 #endif // ARCHIVOPRODUCTOS_H_INCLUDED

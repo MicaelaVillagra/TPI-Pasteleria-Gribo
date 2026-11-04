@@ -4,13 +4,13 @@
 
 using namespace std;
 
-ArchivoEmpleados::ArchivoEmpleados(const char *n="ArchivoEmpleados.dat"){
+ArchivoEmpleados::ArchivoEmpleados(const char *n){
     strcpy(_nombre,n);
 }
 
-Empleado ArchivoEmpleados::leerRegistro(int pos){
+Empleados ArchivoEmpleados::leerRegistro(int pos){
     FILE *p=fopen(_nombre,"rb");
-    Empleado obj;
+    Empleados obj;
     if (p==nullptr){
         cout<<"NO SE PUEDE."<<endl;
         obj.setID(-1);
@@ -31,9 +31,9 @@ int ArchivoEmpleados::contarRegistro(){
     fseek(p, 0, 2);
     int bytes = ftell(p);
     fclose(p);
-    return bytes/sizeof(Empleado);
+    return bytes/sizeof(Empleados);
 }
-bool ArchivoEmpleados::grabarRegistro(Empleado obj){
+bool ArchivoEmpleados::grabarRegistro(Empleados obj){
     FILE *p = fopen(_nombre, "ab");
     if(p == nullptr){
         return false;
@@ -42,16 +42,16 @@ bool ArchivoEmpleados::grabarRegistro(Empleado obj){
     fclose(p);
     return escribio;
 }
-int ArchivoEmpleados::buscarRegistro(int leg){
+int ArchivoEmpleados::buscarRegistro(int id){
     int cantReg = contarRegistro();
     for(int i=0; i<cantReg; i++){
-        Empleado obj = leerRegistro(i);
+        Empleados obj = leerRegistro(i);
         if(obj.getID() == id) return i;
     }
     return -1;
 }
 
-bool ArchivoEmpleados::modificarRegistro(Empleado obj, int pos){
+bool ArchivoEmpleados::modificarRegistro(Empleados obj, int pos){
     FILE *p = fopen(_nombre, "rb+");
 
     if(p == nullptr){
@@ -66,7 +66,7 @@ bool ArchivoEmpleados::modificarRegistro(Empleado obj, int pos){
 void ArchivoEmpleados::listarReg(){
     int cantReg = contarRegistro();
     for(int i=0; i<cantReg; i++){
-        Empleado obj = leerRegistro(i);
+        Empleados obj = leerRegistro(i);
         if(obj.getEstado()){
             obj.Mostrar();
             cout<<"======================="<<endl;
@@ -84,7 +84,7 @@ void ArchivoEmpleados::bajaRegistro(){
         cout<<"NO EXISTE ESA ID EN EL ARCHIVO"<<endl;
         return;
     }
-    Empleado obj = arc.leerRegistro(pos);
+    Empleados obj = arc.leerRegistro(pos);
     obj.setEstado(false);
     arc.modificarRegistro(obj, pos);
 }

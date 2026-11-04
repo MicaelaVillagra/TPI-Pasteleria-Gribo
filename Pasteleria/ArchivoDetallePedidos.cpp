@@ -4,16 +4,16 @@
 
 using namespace std;
 
-ArchivoDetallePedidos::ArchivoDetallePedidos(const char *n="ArchivoDetallePedidos.dat"){
+ArchivoDetallePedidos::ArchivoDetallePedidos(const char *n){
     strcpy(_nombre,n);
 }
 
-Detalle ArchivoDetallePedidos::leerRegistro(int pos){
+DetallePedido ArchivoDetallePedidos::leerRegistro(int pos){
     FILE *p=fopen(_nombre,"rb");
-    Detalle obj;
+    DetallePedido obj;
     if (p==nullptr){
         cout<<"NO SE PUEDE."<<endl;
-        obj.setID(-1);
+        obj.setIDDetalle(-1);
         return obj;
     }
     fseek(p,pos * sizeof obj, 0);
@@ -31,9 +31,9 @@ int ArchivoDetallePedidos::contarRegistro(){
     fseek(p, 0, 2);
     int bytes = ftell(p);
     fclose(p);
-    return bytes/sizeof(Detalle);
+    return bytes/sizeof(DetallePedido);
 }
-bool ArchivoDetallePedidos::grabarRegistro(Detalle obj){
+bool ArchivoDetallePedidos::grabarRegistro(DetallePedido obj){
     FILE *p = fopen(_nombre, "ab");
     if(p == nullptr){
         return false;
@@ -42,16 +42,16 @@ bool ArchivoDetallePedidos::grabarRegistro(Detalle obj){
     fclose(p);
     return escribio;
 }
-int ArchivoDetallePedidos::buscarRegistro(int leg){
+int ArchivoDetallePedidos::buscarRegistro(int id){
     int cantReg = contarRegistro();
     for(int i=0; i<cantReg; i++){
-        Detalle obj = leerRegistro(i);
-        if(obj.getID() == id) return i;
+        DetallePedido obj = leerRegistro(i);
+        if(obj.getIDDetalle() == id) return i;
     }
     return -1;
 }
 
-bool ArchivoDetallePedidos::modificarRegistro(Detalle obj, int pos){
+bool ArchivoDetallePedidos::modificarRegistro(DetallePedido obj, int pos){
     FILE *p = fopen(_nombre, "rb+");
 
     if(p == nullptr){
@@ -66,7 +66,7 @@ bool ArchivoDetallePedidos::modificarRegistro(Detalle obj, int pos){
 void ArchivoDetallePedidos::listarReg(){
     int cantReg = contarRegistro();
     for(int i=0; i<cantReg; i++){
-        Detalle obj = leerRegistro(i);
+        DetallePedido obj = leerRegistro(i);
         if(obj.getEstado()){
             obj.Mostrar();
             cout<<"======================="<<endl;
@@ -84,7 +84,7 @@ void ArchivoDetallePedidos::bajaRegistro(){
         cout<<"NO EXISTE ESA ID EN EL ARCHIVO"<<endl;
         return;
     }
-    Detalle obj = arc.leerRegistro(pos);
+    DetallePedido obj = arc.leerRegistro(pos);
     obj.setEstado(false);
     arc.modificarRegistro(obj, pos);
 }

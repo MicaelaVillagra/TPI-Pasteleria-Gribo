@@ -32,6 +32,24 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="ArchivoCabeceraPedidos.cpp" />
+		<Unit filename="ArchivoCabeceraPedidos.h" />
+		<Unit filename="ArchivoClientes.cpp" />
+		<Unit filename="ArchivoClientes.h" />
+		<Unit filename="ArchivoDetallePedidos.cpp" />
+		<Unit filename="ArchivoDetallePedidos.h" />
+		<Unit filename="ArchivoEmpleados.cpp" />
+		<Unit filename="ArchivoEmpleados.h" />
+		<Unit filename="ArchivoProductos.cpp" />
+		<Unit filename="ArchivoProductos.h" />
+		<Unit filename="ClsCabeceraPedidos.h" />
+		<Unit filename="ClsClientes.h" />
+		<Unit filename="ClsDetallePedidos.h" />
+		<Unit filename="ClsEmpleados.h" />
+		<Unit filename="ClsPersona.h" />
+		<Unit filename="ClsProductos.h" />
+		<Unit filename="Fecha.cpp" />
+		<Unit filename="Fecha.h" />
 		<Unit filename="main.cpp" />
 		<Extensions>
 			<lib_finder disable_auto="1" />

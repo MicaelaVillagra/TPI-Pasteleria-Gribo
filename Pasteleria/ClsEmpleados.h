@@ -1,6 +1,7 @@
 #ifndef CLSEMPLEADOS_H_INCLUDED
 #define CLSEMPLEADOS_H_INCLUDED
 #pragma once
+#include "ClsPersona.h"
 
 
 class Empleados : public Persona {

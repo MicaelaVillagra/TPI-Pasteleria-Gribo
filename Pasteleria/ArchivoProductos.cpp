@@ -4,16 +4,16 @@
 
 using namespace std;
 
-ArchivoProductos::ArchivoProductos(const char *n="ArchivoProductos.dat"){
+ArchivoProductos::ArchivoProductos(const char *n){ // aca le saque el valor por omision que va en el h
     strcpy(_nombre,n);
 }
 
-Producto ArchivoProductos::leerRegistro(int pos){
+Productos ArchivoProductos::leerRegistro(int pos){
     FILE *p=fopen(_nombre,"rb");
-    Producto obj;
+    Productos obj;
     if (p==nullptr){
         cout<<"NO SE PUEDE."<<endl;
-        obj.setID(-1);
+        obj.setIdProducto(-1);
         return obj;
     }
     fseek(p,pos * sizeof obj, 0);
@@ -31,9 +31,9 @@ int ArchivoProductos::contarRegistro(){
     fseek(p, 0, 2);
     int bytes = ftell(p);
     fclose(p);
-    return bytes/sizeof(Producto);
+    return bytes/sizeof(Productos);
 }
-bool ArchivoProductos::grabarRegistro(Producto obj){
+bool ArchivoProductos::grabarRegistro(Productos obj){
     FILE *p = fopen(_nombre, "ab");
     if(p == nullptr){
         return false;
@@ -42,16 +42,16 @@ bool ArchivoProductos::grabarRegistro(Producto obj){
     fclose(p);
     return escribio;
 }
-int ArchivoProductos::buscarRegistro(int leg){
+int ArchivoProductos::buscarRegistro(int id){
     int cantReg = contarRegistro();
     for(int i=0; i<cantReg; i++){
-        Producto obj = leerRegistro(i);
-        if(obj.getID() == id) return i;
+        Productos obj = leerRegistro(i);
+        if(obj.getIdProducto() == id) return i;
     }
     return -1;
 }
 
-bool ArchivoProductos::modificarRegistro(Producto obj, int pos){
+bool ArchivoProductos::modificarRegistro(Productos obj, int pos){
     FILE *p = fopen(_nombre, "rb+");
 
     if(p == nullptr){
@@ -66,7 +66,7 @@ bool ArchivoProductos::modificarRegistro(Producto obj, int pos){
 void ArchivoProductos::listarReg(){
     int cantReg = contarRegistro();
     for(int i=0; i<cantReg; i++){
-        Producto obj = leerRegistro(i);
+        Productos obj = leerRegistro(i);
         if(obj.getEstado()){
             obj.Mostrar();
             cout<<"======================="<<endl;
@@ -84,7 +84,7 @@ void ArchivoProductos::bajaRegistro(){
         cout<<"NO EXISTE ESA ID EN EL ARCHIVO"<<endl;
         return;
     }
-    Producto obj = arc.leerRegistro(pos);
+    Productos obj = arc.leerRegistro(pos);
     obj.setEstado(false);
     arc.modificarRegistro(obj, pos);
 }

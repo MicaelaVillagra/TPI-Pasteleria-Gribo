@@ -1,10 +1,11 @@
 #ifndef CLSCABECERAPEDIDOS_H_INCLUDED
 #define CLSCABECERAPEDIDOS_H_INCLUDED
 #pragma once
+#include "Fecha.h"
 
 class CabeceraPedido{
 private:
-    int IDPedido;
+    int _IDPedido;
     int _idCabecera;
     int _idEmpleado;
     int _idCliente;
@@ -20,7 +21,7 @@ public:
     void setEstado (bool estado);
     int getIDCabecera ();
     int getIDEmpleado ();
-    int getIDCliente ()
+    int getIDCliente ();
     Fecha getFechaEncargo();
     const char *getMetodoPago();
     bool getEstado();

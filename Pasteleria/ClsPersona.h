@@ -3,7 +3,7 @@
 #pragma once
 
 class Persona {
-private:
+protected:
     int _ID;
     char _nombreApellido [25];
     char _domicilio [25];
@@ -14,7 +14,7 @@ public:
     void setID (int id);
     void setNombre (const char *nombre);
     void setDomicilio (const char *domicilio);
-    void setTelefono (int teléfono);
+    void setTelefono (int telefono);
     void setEstado (bool estado);
     int getID ();
     const char *getNombre ();

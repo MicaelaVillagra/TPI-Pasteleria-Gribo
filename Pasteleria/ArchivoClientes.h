@@ -1,18 +1,20 @@
 #ifndef ARCHIVOCLIENTES_H_INCLUDED
 #define ARCHIVOCLIENTES_H_INCLUDED
-#include "clsCliente.h"
+#include "ClsClientes.h"
 
 class ArchivoClientes{
 private:
     char _nombre[30];
 
 public:
-    ArchivoClientes(const char *n="ArchivoClientes.dat");
-    Cliente leerRegistro(int pos);
+    ArchivoClientes(const char *n="Clientes.dat");
+    Clientes leerRegistro(int pos);
     int contarRegistro();
-    bool grabarRegistro(Cliente obj);
-    int buscarRegistro(int leg);
+    bool grabarRegistro(Clientes obj);
+    int buscarRegistro(int id);
+    bool modificarRegistro(Clientes obj, int pos);
     void listarReg();
+    void bajaRegistro();
 };
 
 #endif // ARCHIVOCLIENTES_H_INCLUDED
