@@ -1,3 +1,4 @@
+#pragma once
 #ifndef FECHA_H_INCLUDED
 #define FECHA_H_INCLUDED
 
@@ -7,6 +8,11 @@ private:
     int _dia;
     int _mes;
     int _anio;
+
+    bool EsBisiesto (int anio);
+    int DiasDelMes (int mes, int anio);
+    bool EsValida (int dia, int mes, int anio);
+
 public:
     Fecha(int d=1, int m=1, int a=1993);
     void setDia(int d);
@@ -17,6 +23,8 @@ public:
     int getAnio();
     void Cargar();
     void Mostrar();
+
+    ~Fecha ();
 
 };
 
