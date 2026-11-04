@@ -1,6 +1,6 @@
 #ifndef ARCHIVODETALLEPEDIDOS_H_INCLUDED
 #define ARCHIVODETALLEPEDIDOS_H_INCLUDED
-#include "ClsDetallePedidos.h"
+#include "ClsDetallePedido.h"
 
 
 class ArchivoDetallePedidos{
