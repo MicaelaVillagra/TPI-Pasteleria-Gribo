@@ -42,12 +42,12 @@
 		<Unit filename="ArchivoEmpleados.h" />
 		<Unit filename="ArchivoProductos.cpp" />
 		<Unit filename="ArchivoProductos.h" />
-		<Unit filename="ClsCabeceraPedidos.h" />
-		<Unit filename="ClsClientes.h" />
-		<Unit filename="ClsDetallePedidos.h" />
-		<Unit filename="ClsEmpleados.h" />
+		<Unit filename="ClsCabeceraPedido.h" />
+		<Unit filename="ClsCliente.h" />
+		<Unit filename="ClsDetallePedido.h" />
+		<Unit filename="ClsEmpleado.h" />
 		<Unit filename="ClsPersona.h" />
-		<Unit filename="ClsProductos.h" />
+		<Unit filename="ClsProducto.h" />
 		<Unit filename="Fecha.cpp" />
 		<Unit filename="Fecha.h" />
 		<Unit filename="main.cpp" />
