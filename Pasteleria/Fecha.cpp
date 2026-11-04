@@ -57,8 +57,8 @@ Fecha::Fecha(int d, int m, int a)
 }else {
     _dia =1;
     _mes=1;
-    _anio=2023;
-    cout << "Fecha invalida, se guardo 1/1/2023" << endl;
+    _anio=1993;
+    cout << "Fecha invalida, se guardo 1/1/1993" << endl;
     }}
 
 
