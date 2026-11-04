@@ -1,6 +1,6 @@
 #ifndef ARCHIVOEMPLEADOS_H_INCLUDED
 #define ARCHIVOEMPLEADOS_H_INCLUDED
-#include "ClsEmpleados.h"
+#include "ClsEmpleado.h"
 
 
 class ArchivoEmpleados{
