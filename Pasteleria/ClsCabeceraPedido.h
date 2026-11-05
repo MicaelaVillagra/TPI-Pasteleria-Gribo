@@ -12,6 +12,7 @@ private:
     Fecha _fechaEncargo;
     char _metodoPago[20];
     bool _estado;
+    int _estadoPedido;
 public:
     void setIDPedido (int id);
     void setIDCabecera(int id);
@@ -20,6 +21,7 @@ public:
     void setFechaEncargo(Fecha f);
     void setMetodoPago(const char *m);
     void setEstado (bool estado);
+    void setEstadoPedido(int ep);
     int getIDPedido ();
     int getIDCabecera ();
     int getIDEmpleado ();

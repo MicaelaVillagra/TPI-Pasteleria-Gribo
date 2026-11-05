@@ -25,6 +25,13 @@ using namespace std;
     void CabeceraPedido::setEstado (bool estado){
         _estado=estado;
     }
+    void CabeceraPedido::setEstadoPedido(int ep)
+    {
+        if(_estadoPedido >= 1 && _estadoPedido <= 3)
+        {
+            _estadoPedido = ep
+        }
+    }
     int CabeceraPedido::getIDPedido(){
         return _IDPedido;
     }
@@ -45,6 +52,10 @@ using namespace std;
     }
     bool CabeceraPedido::getEstado(){
         return _estado;
+    }
+    int CabeceraPedido::getEstadoPedido()
+    {
+        return _estadoPedido;
     }
     void CabeceraPedido::Cargar(){
         Fecha auxF;
@@ -68,6 +79,7 @@ using namespace std;
         cout<<"ELEGIR METODO DE PAGO"<<endl;
         cin>>auxC;
         setMetodoPago(auxC);
+        setEstadoPedido(1);
         setEstado(true);
     }
     void CabeceraPedido::Mostrar(){
@@ -80,4 +92,5 @@ using namespace std;
         cout<<endl;
         cout<<"METODO DE PAGO: "<<getMetodoPago()<<endl;
         cout<<"ESTADO: "<<getEstado()<<endl;
+        cout<<"ESTADO PEDIDO : "<< getEstadoPedido()<<endl;
     }
