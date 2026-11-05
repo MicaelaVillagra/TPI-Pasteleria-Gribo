@@ -6,6 +6,24 @@
 
 using namespace std;
 
+void Reportes::clienteConMasCompras()
+{
+
+}
+
+void Reportes::facturacionTotal()
+{
+
+}
+void Reportes::ventasPorVendedor()
+{
+
+}
+void Reportes::metodoPagoMasUtilizado()
+{
+
+}
+
 void Reportes::promedioUnidadesPorPedido()
 {
 

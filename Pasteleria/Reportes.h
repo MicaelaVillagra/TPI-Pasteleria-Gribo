@@ -5,6 +5,10 @@
 class Reportes
 {
 public:
+    void clienteConMasCompras();
+    void facturacionTotal();
+    void ventasPorVendedor();
+    void metodoPagoMasUtilizado();
     void promedioUnidadesPorPedido();
     void productoMasVendido();
     void recaudacionAnual();

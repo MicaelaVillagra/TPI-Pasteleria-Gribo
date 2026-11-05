@@ -58,6 +58,8 @@
 		<Unit filename="ClsReabastecimiento.h" />
 		<Unit filename="Fecha.cpp" />
 		<Unit filename="Fecha.h" />
+		<Unit filename="Reportes.cpp" />
+		<Unit filename="Reportes.h" />
 		<Unit filename="main.cpp" />
 		<Extensions>
 			<lib_finder disable_auto="1" />
