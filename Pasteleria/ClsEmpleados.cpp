@@ -1,7 +1,7 @@
 #include <iostream>
 #include <cstring>
 #include "ClsPersona.h"
-#include "ClsEmpleados.h"
+#include "ClsEmpleado.h"
 using namespace std;
 
 void Empleados:: setOficio(const char *o){
