@@ -27,7 +27,7 @@ using namespace std;
     }
     void CabeceraPedido::setEstadoPedido(int ep)
     {
-        if(_estadoPedido >= 1 && _estadoPedido <= 3)
+        if(ep >= 1 && _ep <= 3)
         {
             _estadoPedido = ep
         }

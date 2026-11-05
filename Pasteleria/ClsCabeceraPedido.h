@@ -29,6 +29,7 @@ public:
     Fecha getFechaEncargo();
     const char *getMetodoPago();
     bool getEstado();
+    int getEstadoPedido();
     void Cargar();
     void Mostrar();
 
