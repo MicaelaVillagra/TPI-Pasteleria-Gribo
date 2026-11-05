@@ -26,7 +26,7 @@ void Productos::setIdProducto(int id)
 {
     if(id >0)
     {
-        _idProducto = id
+        _idProducto = id;
     }
 }
 
@@ -113,7 +113,7 @@ void Productos::Cargar()
 void Productos::Mostrar()
 {
     cout<<"ID Producto : "<< _idProducto <<endl;
-    cout<<"Producto : " << _nombre<<end;
+    cout<<"Producto : " << _nombre<<endl;
     cout<<"Precio Producto : " <<  _precio <<endl;
     cout<<"Cantidad disponible : " << _stock << endl;;
 }
