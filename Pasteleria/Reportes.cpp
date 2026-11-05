@@ -1,30 +1,74 @@
 #include <iostream>
+#include <cstring>
 #include "Reportes.h"
 #include "ArchivoProductos.h"
 #include "ArchivoCabeceraPedidos.h"
 #include "ArchivoDetallePedidos.h"
+#include "ArchivoEmpleados.h"
 
 using namespace std;
 
-void Reportes::clienteConMasCompras()
+void clienteConMasCompras()
 {
 
 }
 
-void Reportes::facturacionTotal()
+void facturacionTotal()
+{
+    ArchivoDetallePedidos arc;
+    DetallePedido obj;
+    float preciosave=0.0;
+    int cantReg = arc.contarRegistro();
+    for (int i=0;i<cantReg;i++){
+        obj=arc.leerRegistro(i);
+        if (obj.getEstado()==0){
+            preciosave+=obj.getPrecio();
+        }
+
+    }
+    cout<<"HAY UN TOTAL DE "<<preciosave<<" EN VENTAS REALIZADAS"<<endl;
+}
+
+void ventasPorVendedor()
+{
+    ArchivoEmpleados arc;
+    ArchivoCabeceraPedidos arc2;
+    Empleados obj;
+    CabeceraPedido obj2;
+    int *vec=nullptr, *vec2=nullptr, i, j;
+    int cantReg = arc.contarRegistro();
+    int cantReg2 = arc2.contarRegistro();
+    vec = new int[cantReg]{};
+    vec2 = new int[cantReg]{};
+    for (i=0;i<cantReg;i++){
+        obj=arc.leerRegistro(i);
+        if (strcmp(obj.getOficio(),"vendedor")==0){
+            vec[i]=obj.getID();
+        }
+    }
+
+    for (j=0;j<cantReg2;j++){
+        obj2=arc2.leerRegistro(i);
+        for (i=0;i<cantReg;i++){
+            if (vec[i]==obj2.getIDEmpleado()){
+                vec2[i]++;
+            }
+        }
+    }
+
+    for (i=0;i<cantReg;i++){
+        if (vec[i]!=0){
+            cout<<"EL VENDEDOR DE ID "<<vec[i]<<" VENDIO UN TOTAL DE "<<vec[i]<<" PEDIDOS"<<endl;
+        }
+    }
+}
+
+void metodoPagoMasUtilizado()
 {
 
 }
-void Reportes::ventasPorVendedor()
-{
 
-}
-void Reportes::metodoPagoMasUtilizado()
-{
-
-}
-
-void Reportes::promedioUnidadesPorPedido()
+void promedioUnidadesPorPedido()
 {
     ArchivoDetallePedidos archDetalle;
     int cantDetalles = archDetalle.contarRegistro();
@@ -62,17 +106,17 @@ void Reportes::promedioUnidadesPorPedido()
     cout << "Promedio de unidades por pedido: " << promedio << endl;
 }
 
-void Reportes::productoMasVendido()
+void productoMasVendido()
 {
 
 }
 
-void Reportes::recaudacionAnual()
+void recaudacionAnual()
 {
 
 }
 
-void Reportes::porcentajeEntregadosPendientes()
+void porcentajeEntregadosPendientes()
 {
 
 }
