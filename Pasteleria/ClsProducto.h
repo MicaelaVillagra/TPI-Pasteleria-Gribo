@@ -4,13 +4,15 @@
 
 class Productos {
     private:
-        int IDProducto;
-        char Producto [25];
-        float PrecioProducto;
-        int CantDisponible;
-        bool Estado;
+        int _idProducto;
+        char _nombre[25];
+        float _precio;
+        int _stock;
+        bool _estado;
 
     public:
+        Productos();
+        Productos(int id, const char *n, float p, int s, bool e);
         void setIdProducto(int id);
         void setNombre(const char *n);
         void setPrecio(float p);
