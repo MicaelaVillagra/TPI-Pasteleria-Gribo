@@ -19,9 +19,11 @@ void facturacionTotal()
     DetallePedido obj;
     float preciosave=0.0;
     int cantReg = arc.contarRegistro();
-    for (int i=0;i<cantReg;i++){
+    for (int i=0; i<cantReg; i++)
+    {
         obj=arc.leerRegistro(i);
-        if (obj.getEstado()==0){
+        if (obj.getEstado()==0)
+        {
             preciosave+=obj.getPrecio();
         }
 
@@ -38,26 +40,33 @@ void ventasPorVendedor()
     int *vec=nullptr, *vec2=nullptr, i, j;
     int cantReg = arc.contarRegistro();
     int cantReg2 = arc2.contarRegistro();
-    vec = new int[cantReg]{};
-    vec2 = new int[cantReg]{};
-    for (i=0;i<cantReg;i++){
+    vec = new int[cantReg] {};
+    vec2 = new int[cantReg] {};
+    for (i=0; i<cantReg; i++)
+    {
         obj=arc.leerRegistro(i);
-        if (strcmp(obj.getOficio(),"vendedor")==0){
+        if (strcmp(obj.getOficio(),"vendedor")==0)
+        {
             vec[i]=obj.getID();
         }
     }
 
-    for (j=0;j<cantReg2;j++){
+    for (j=0; j<cantReg2; j++)
+    {
         obj2=arc2.leerRegistro(i);
-        for (i=0;i<cantReg;i++){
-            if (vec[i]==obj2.getIDEmpleado()){
+        for (i=0; i<cantReg; i++)
+        {
+            if (vec[i]==obj2.getIDEmpleado())
+            {
                 vec2[i]++;
             }
         }
     }
 
-    for (i=0;i<cantReg;i++){
-        if (vec[i]!=0){
+    for (i=0; i<cantReg; i++)
+    {
+        if (vec[i]!=0)
+        {
             cout<<"EL VENDEDOR DE ID "<<vec[i]<<" VENDIO UN TOTAL DE "<<vec[i]<<" PEDIDOS"<<endl;
         }
     }
@@ -126,33 +135,35 @@ void porcentajeEntregadosPendientes()
     int pendientes = 0;
 
     for (int i = 0; i < cantCabeceras ; i++ )
-        {
-            CabeceraPedido cab = archCabecera.leerRegistro(i);
+    {
+        CabeceraPedido cab = archCabecera.leerRegistro(i);
 
-            if(cab.getEstado() == true)
-            {
-                totalPedidos++;
-            }
-            if(cab.getEstado() == ENTREGADO)
+        if(cab.getEstado() == true)
+        {
+            totalPedidos++;
+            if(cab.getEstadoPedido() == ENTREGADO)
             {
                 entregados++;
 
-            }else if (cab.getEstado() == PENDIENTE)
+            }
+            else if (cab.getEstadoPedido() == PENDIENTE)
             {
                 pendientes++;
             }
         }
-        if(totalPedidos == 0)
-        {
-            cout <<" No hay pedidos registrados. " << endl;
-            return;
-        }
 
-        float porcEntregados = (float)entregados * 100 / totalPedidos;
-        float porcPendientes = (float)pendientes * 100 / totalPedidos;
+    }
+    if(totalPedidos == 0)
+    {
+        cout <<" No hay pedidos registrados. " << endl;
+        return;
+    }
 
-        cout << " Total de pedidos : " << totalPedidos << endl;
-        cout << " Entregados : " << entregados << " - " <<porcEntregados <<"%"<<endl;
-        cout << " Pendientes : " << pendientes << " - " <<porcPendientes <<"%"<<endl;
+    float porcEntregados = (float)entregados * 100 / totalPedidos;
+    float porcPendientes = (float)pendientes * 100 / totalPedidos;
+
+    cout << " Total de pedidos : " << totalPedidos << endl;
+    cout << " Entregados : " << entregados << " - " <<porcEntregados <<"%"<<endl;
+    cout << " Pendientes : " << pendientes << " - " <<porcPendientes <<"%"<<endl;
 
 }
