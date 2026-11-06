@@ -118,5 +118,41 @@ void recaudacionAnual()
 
 void porcentajeEntregadosPendientes()
 {
+    ArchivoCabeceraPedidos archCabecera;
+    int cantCabeceras = archCabecera.contarRegistro();
+
+    int totalPedidos = 0;
+    int entregados = 0;
+    int pendientes = 0;
+
+    for (int i = 0; i < cantCabeceras ; i++ )
+        {
+            CabeceraPedido cab = archCabecera.leerRegistro(i);
+
+            if(cab.getEstado() == true)
+            {
+                totalPedidos++;
+            }
+            if(cab.getEstado() == ENTREGADO)
+            {
+                entregados++;
+
+            }else if (cab.getEstado() == PENDIENTE)
+            {
+                pendientes++;
+            }
+        }
+        if(totalPedidos == 0)
+        {
+            cout <<" No hay pedidos registrados. " << endl;
+            return;
+        }
+
+        float porcEntregados = (float)entregados * 100 / totalPedidos;
+        float porcPendientes = (float)pendientes * 100 / totalPedidos;
+
+        cout << " Total de pedidos : " << totalPedidos << endl;
+        cout << " Entregados : " << entregados << " - " <<porcEntregados <<"%"<<endl;
+        cout << " Pendientes : " << pendientes << " - " <<porcPendientes <<"%"<<endl;
 
 }
