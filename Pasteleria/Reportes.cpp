@@ -5,13 +5,87 @@
 #include "ArchivoCabeceraPedidos.h"
 #include "ArchivoDetallePedidos.h"
 #include "ArchivoEmpleados.h"
+#include "ArchivoClientes.h"
 
 using namespace std;
 
-void clienteConMasCompras()
-{
+///reporte 1 mati
+
+void clienteConMasCompras(){
+
+    ArchivoClientes arcClientes;
+    ArchivoCabeceraPedidos arcCabecera;
+    Clientes cli;
+    CabeceraPedido cab;
+    int *vCompras;
+    int i, pos, posMax = -1;
+    int cantClientes = arcClientes.contarRegistro();
+    int cantCabeceras = arcCabecera.contarRegistro();
+
+    if(cantClientes <= 0){
+        return;
+    }
+    vCompras = new int[cantClientes];
+
+    for(i=0; i<cantClientes; i++){
+        vCompras[i] = 0;
+    }
+    for(i=0; i<cantCabeceras; i++){
+        cab = arcCabecera.leerRegistro(i);
+        if(cab.getEstado() == true){
+            pos = arcClientes.buscarRegistro(cab.getIDCliente());
+            if(pos != -1){
+                vCompras[pos]++;
+            }
+        }
+    }
+    for(i=0; i<cantClientes; i++){
+        cli = arcClientes.leerRegistro(i);
+            if(cli.getEstado() == true && vCompras[i] > 0 && (posMax == -1 || vCompras[i] > vCompras[posMax])){
+            posMax = i;
+        }
+    }
+    if(posMax != -1){
+        cli = arcClientes.leerRegistro(posMax);
+        cout<<"Cliente con mas compras: "<<cli.getNombre()<<endl;
+    }
+    delete []vCompras;
+}
+
+///reporte 2 mati
+
+void metodoPagoMasUtilizado(){
+
+    ArchivoCabeceraPedidos arcCabecera;
+    CabeceraPedido cab, aux;
+    char metodoMax[20];
+    int i, j, cont, contMax = 0;
+    int cantCabeceras = arcCabecera.contarRegistro();
+
+    for(i=0; i<cantCabeceras; i++){
+        cab = arcCabecera.leerRegistro(i);
+            if(cab.getEstado() == true){
+                cont = 0;
+    for(j=0; j<cantCabeceras; j++){
+        aux = arcCabecera.leerRegistro(j);
+            if(aux.getEstado() == true && strcmp(aux.getMetodoPago(), cab.getMetodoPago()) == 0){
+                cont++;
+            }
+        }
+    if(cont > contMax){
+        contMax = cont;
+        strcpy(metodoMax, cab.getMetodoPago());
+        }
+    }
+}
+
+    if(contMax > 0){
+        cout<<"Metodo de pago mas utilizado: "<<metodoMax<<endl;
+    }
 
 }
+
+///######################
 
 void facturacionTotal()
 {
@@ -30,6 +104,8 @@ void facturacionTotal()
     }
     cout<<"HAY UN TOTAL DE "<<preciosave<<" EN VENTAS REALIZADAS"<<endl;
 }
+
+
 
 void ventasPorVendedor()
 {
@@ -70,11 +146,6 @@ void ventasPorVendedor()
             cout<<"EL VENDEDOR DE ID "<<vec[i]<<" VENDIO UN TOTAL DE "<<vec[i]<<" PEDIDOS"<<endl;
         }
     }
-}
-
-void metodoPagoMasUtilizado()
-{
-
 }
 
 void promedioUnidadesPorPedido()
