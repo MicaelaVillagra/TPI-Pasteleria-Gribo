@@ -58,6 +58,10 @@
 		<Unit filename="ClsReabastecimiento.h" />
 		<Unit filename="Fecha.cpp" />
 		<Unit filename="Fecha.h" />
+		<Unit filename="Menu.cpp" />
+		<Unit filename="Menu.h" />
+		<Unit filename="MenuPrincipal.cpp" />
+		<Unit filename="MenuPrincipal.h" />
 		<Unit filename="Reportes.cpp" />
 		<Unit filename="Reportes.h" />
 		<Unit filename="main.cpp" />
