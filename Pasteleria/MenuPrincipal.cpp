@@ -1,5 +1,6 @@
 #include <iostream>
 #include "MenuPrincipal.h"
+#include "MenuReportes.h"
 
 using namespace std;
 
@@ -26,36 +27,38 @@ void MenuPrincipal::run()
         switch(opcion)
         {
         case 1:
-            {
-                cout << "Productos: en construccion " << endl;
-                break;
-            }
-        case 2:
-            {
-                cout << "Clientes: en construccion " << endl;
-                break;
-            }
-        case 3:
-            {
-                cout <<"Empleados: en construccion " << endl;
-                break;
-            }
-        case 4:
-            {
-                cout << "Pedidos: en construccion " << endl;
-                break;
-            }
-        case 5:
-            {
-                cout << "Reabastecimiento: en construccion " <<endl;
-                break;
-            }
-        case 6:
-            {
-                cout << "Reportes: en construccion " << endl;
-                break;
-            }
+        {
+            cout << "Productos: en construccion " << endl;
+            break;
         }
-    }while (opcion !=0);
+        case 2:
+        {
+            cout << "Clientes: en construccion " << endl;
+            break;
+        }
+        case 3:
+        {
+            cout <<"Empleados: en construccion " << endl;
+            break;
+        }
+        case 4:
+        {
+            cout << "Pedidos: en construccion " << endl;
+            break;
+        }
+        case 5:
+        {
+            cout << "Reabastecimiento: en construccion " <<endl;
+            break;
+        }
+        case 6:
+        {
+            MenuReportes menuReportes;
+            menuReportes.run();
+            break;
+        }
+        }
+    }
+    while (opcion !=0);
 }
 
