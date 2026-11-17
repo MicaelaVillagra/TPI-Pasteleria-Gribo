@@ -2,6 +2,7 @@
 #include "MenuPrincipal.h"
 #include "MenuReportes.h"
 #include "MenuProductos.h"
+#include "MenuClientes.h"
 
 using namespace std;
 
@@ -35,7 +36,8 @@ void MenuPrincipal::run()
         }
         case 2:
         {
-            cout << "Clientes: en construccion " << endl;
+            MenuClientes menuClientes;
+            menuClientes.run();
             break;
         }
         case 3:
