@@ -188,12 +188,102 @@ void promedioUnidadesPorPedido()
 
 void productoMasVendido()
 {
+ArchivoProductos archivoProd("Productos.dat");
+int cantProd = archivoProd.contarRegistro();
 
+ArchivoDetallePedidos archivoDet("DetallePedidos.dat");
+int cantDet = archivoDet.contarRegistro();
+
+if (cantProd==0 || cantDet==0){
+    cout << "No hay productos o pedidos registrados. "<< endl;
+    return;
+}
+
+int *Ids = new int[cantProd];
+int *Vendidos = new int [cantProd]();
+
+for (int i =0; i<cantProd; i++){
+    Productos prod = archivoProd.leerRegistro(i);
+    Ids[i]=prod.getIdProducto();
+}
+
+for (int j=0;j<cantDet; j++){
+    DetallePedido det = archivoDet.leerRegistro(j);
+
+    for (int i = 0; i< cantProd; i++){
+        if (Ids [i] == det.getIDProducto()){
+            Vendidos [i] += det.getCantidad();
+            break;
+        }
+    }
+}
+
+int posMax=0;
+for (int i=1; i< cantProd;i++){
+    if (Vendidos[i]>Vendidos[posMax])
+        posMax=i;
+}
+if (Vendidos[posMax]==0){
+    cout << "No se vendio ningun producto. "<< endl;
+}else {
+Productos prod= archivoProd.leerRegistro(posMax);
+cout << "Producto mas vendido: " << prod.getNombre() << endl;
+cout << "ID: "<< prod.getIdProducto()<< endl;
+cout << "Unidades vendidad: " << Vendidos[posMax] << endl;
+}
+delete [] Ids;
+delete [] Vendidos;
 }
 
 void recaudacionAnual()
 {
+const int primerAnio=2005;
+const int AnioActual = 2026;
+const int CantAnios = AnioActual-primerAnio+1;
+float recaudacion[CantAnios] = {0};
 
+ArchivoCabeceraPedidos archivoCab("CabeceraPedidos.dat");
+int cantidadRegistrosCab = archivoCab.contarRegistro();
+ArchivoDetallePedidos archivoDet("DetallePedidos.dat");
+int cantidadRegistrosDet = archivoDet.contarRegistro();
+
+if (cantidadRegistrosCab==0 || cantidadRegistrosDet==0){
+        cout << "No hay pedidos registrados. " << endl;
+        return;
+    }
+
+for (int i =0; i<cantidadRegistrosCab; i++){
+    CabeceraPedido cab = archivoCab.leerRegistro(i);
+    int pos = cab.getFechaEncargo().getAnio() - primerAnio;
+
+    if (pos<0 || pos>=CantAnios){
+            continue;}
+    for (int j =0; j<cantidadRegistrosDet; j++){
+    DetallePedido det = archivoDet.leerRegistro(j);
+
+    if (det.getIDPedido() == cab.getIDPedido()) {
+                recaudacion[pos] += det.getPrecio();
+    }
+}
+}
+
+int anio;
+cout << "Indique año a consultar: " << endl;
+cin >> anio;
+
+int pos = anio - primerAnio;
+    if (pos < 0 || pos >= CantAnios) {
+        cout << "El anio debe estar entre " << primerAnio << " y " << AnioActual << endl;
+        return;
+    }
+
+    if (recaudacion[pos] == 0) {
+        cout << "No hay registros del anio: " << anio << endl;
+    } else {
+        cout << "Recaudacion del anio " << anio << ": $" << recaudacion[pos] << endl;
+
+
+}
 }
 
 void porcentajeEntregadosPendientes()
