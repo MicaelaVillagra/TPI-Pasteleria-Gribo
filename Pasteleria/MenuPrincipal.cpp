@@ -1,6 +1,7 @@
 #include <iostream>
 #include "MenuPrincipal.h"
 #include "MenuReportes.h"
+#include "MenuProductos.h"
 
 using namespace std;
 
@@ -28,7 +29,8 @@ void MenuPrincipal::run()
         {
         case 1:
         {
-            cout << "Productos: en construccion " << endl;
+            MenuProductos menuProductos;
+            menuProductos.run();
             break;
         }
         case 2:
