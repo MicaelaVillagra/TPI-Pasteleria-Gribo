@@ -146,6 +146,9 @@ void ventasPorVendedor()
             cout<<"EL VENDEDOR DE ID "<<vec[i]<<" VENDIO UN TOTAL DE "<<vec[i]<<" PEDIDOS"<<endl;
         }
     }
+    delete []vec;
+    delete []vec2;
+    
 }
 
 void promedioUnidadesPorPedido()
