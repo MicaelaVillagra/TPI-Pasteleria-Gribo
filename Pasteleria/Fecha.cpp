@@ -129,5 +129,5 @@ void Fecha::Mostrar()
 }
 
 Fecha :: ~Fecha (){
-cout << "SE MURIO EL OBJETO" << endl;
+
 }
