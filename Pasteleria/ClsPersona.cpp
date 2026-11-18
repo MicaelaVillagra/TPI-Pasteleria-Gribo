@@ -60,11 +60,12 @@ void Persona::Cargar(){
         cin>>_ID;
     }
 
+    cin.ignore();
     cout<<"Nombre y apellido: ";
-    cin>>_nombreApellido;
+    cin.getline(_nombreApellido, 25);
 
     cout<<"Domicilio: ";
-    cin>>_domicilio;
+    cin.getline(_domicilio, 25);
 
     cout<<"Telefono: ";
     cin>>_telefono;
