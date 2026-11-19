@@ -323,7 +323,7 @@ void recaudacionAnual()
 
             if (det.getIDPedido() == cab.getIDPedido())
             {
-                recaudacion[pos] += det.getPrecio();
+                recaudacion[pos] += det.getCantidad() * det.getPrecio();
             }
         }
     }
