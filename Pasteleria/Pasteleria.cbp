@@ -42,6 +42,8 @@
 		<Unit filename="ArchivoEmpleados.h" />
 		<Unit filename="ArchivoProductos.cpp" />
 		<Unit filename="ArchivoProductos.h" />
+		<Unit filename="ArchivoReabastecimiento.cpp" />
+		<Unit filename="ArchivoReabastecimiento.h" />
 		<Unit filename="ClsCabeceraPedido.cpp" />
 		<Unit filename="ClsCabeceraPedido.h" />
 		<Unit filename="ClsCliente.cpp" />
@@ -68,6 +70,8 @@
 		<Unit filename="MenuPrincipal.h" />
 		<Unit filename="MenuProductos.cpp" />
 		<Unit filename="MenuProductos.h" />
+		<Unit filename="MenuReabastecimiento.cpp" />
+		<Unit filename="MenuReabastecimiento.h" />
 		<Unit filename="MenuReportes.cpp" />
 		<Unit filename="MenuReportes.h" />
 		<Unit filename="Reportes.cpp" />
