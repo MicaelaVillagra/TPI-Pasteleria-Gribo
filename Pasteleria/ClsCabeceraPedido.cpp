@@ -79,7 +79,13 @@ using namespace std;
         cout<<"ELEGIR METODO DE PAGO"<<endl;
         cin>>auxC;
         setMetodoPago(auxC);
-        setEstadoPedido(1);
+        cout<<"ESTADO DEL PEDIDO (1-PENDIENTE 2-ENTREGADO 3-CANCELADO)"<<endl;
+        cin>>aux;
+        while(aux < 1 || aux > 3){
+            cout<<"ESTADO INVALIDO. INGRESE 1, 2 O 3"<<endl;
+            cin>>aux;
+        }
+        setEstadoPedido(aux);
         setEstado(true);
     }
     void CabeceraPedido::Mostrar(){
