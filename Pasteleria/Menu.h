@@ -10,6 +10,10 @@ public:
     void dibujarMenu();
     int obtenerRespuesta();
     ~Menu();
+protected:
+    void limpiarPantalla();
+    void pausar();
+
 private:
     std::string* _vOpciones;
     int _cantItems;

@@ -51,6 +51,10 @@ void MenuEmpleados::run()
             break;
         }
         }
+        if (opcion != 0)
+        {
+            pausar();
+        }
     }
     while(opcion !=0);
 }

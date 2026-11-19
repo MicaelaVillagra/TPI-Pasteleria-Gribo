@@ -27,6 +27,7 @@ void Menu::setItem(int indice, std::string texto)
 
 void Menu::dibujarMenu()
 {
+    limpiarPantalla();
     cout << "----- MENU -----" << endl;
     for(int i = 0; i < _cantItems; i++)
     {
@@ -65,4 +66,24 @@ int Menu::obtenerRespuesta()
 Menu::~Menu()
 {
     delete[] _vOpciones;
+}
+
+void Menu::limpiarPantalla()
+{
+    cout << flush;
+#ifdef _WIN32
+    system("cls");
+#else
+    system("clear");
+#endif
+}
+
+void Menu::pausar()
+{
+    cout << "Presione Enter para continuar..."<< flush;
+#ifdef _WIN32
+    system("pause > nul");
+#else
+    system("read x");
+#endif
 }
