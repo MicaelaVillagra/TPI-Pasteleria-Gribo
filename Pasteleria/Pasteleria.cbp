@@ -66,6 +66,8 @@
 		<Unit filename="MenuClientes.h" />
 		<Unit filename="MenuEmpleados.cpp" />
 		<Unit filename="MenuEmpleados.h" />
+		<Unit filename="MenuPedidos.cpp" />
+		<Unit filename="MenuPedidos.h" />
 		<Unit filename="MenuPrincipal.cpp" />
 		<Unit filename="MenuPrincipal.h" />
 		<Unit filename="MenuProductos.cpp" />
