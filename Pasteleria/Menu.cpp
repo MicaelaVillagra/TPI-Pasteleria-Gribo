@@ -4,7 +4,8 @@
 
 using namespace std;
 
-Menu::Menu(int cantidadItems) {
+Menu::Menu(int cantidadItems)
+{
 
     _vOpciones = new string[cantidadItems];
 
@@ -44,11 +45,19 @@ int Menu::obtenerRespuesta()
         cout << "Opcion: ";
         cin >> opcion;
 
-        if(opcion < 0 || opcion > _cantItems)
+        if (cin.fail())
+        {
+            cin.clear();
+            cin.ignore(1000, '\n');
+            opcion = -1;
+        }
+
+        if (opcion < 0 || opcion > _cantItems)
         {
             cout << "Opcion incorrecta..." << endl;
         }
-    }while(opcion < 0 || opcion > _cantItems);
+    }
+    while (opcion < 0 || opcion > _cantItems);
 
     return opcion;
 }
