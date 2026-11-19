@@ -25,8 +25,7 @@ Productos ArchivoProductos::leerRegistro(int pos){
 int ArchivoProductos::contarRegistro(){
     FILE *p=fopen(_nombre, "rb");
     if (p==nullptr){
-        cout<<"ERROR AL CONTAR."<<endl;
-        return -1;
+        return 0;
     }
     fseek(p, 0, 2);
     int bytes = ftell(p);
