@@ -27,15 +27,12 @@ void MenuPedidos::run(){
         {
             CabeceraPedido obj;
             obj.Cargar();
-
             if(_archivoCabecera.buscarRegistro(obj.getIDCabecera()) >= 0){
                 cout << "Ya existe una cabecera con ese ID." << endl;
             }
-
             else if(_archivoCabecera.grabarRegistro(obj)){
                 cout << "Cabecera guardada." << endl;
             }
-
             else{
                 cout << "No se pudo guardar la cabecera." << endl;
             }
@@ -48,9 +45,42 @@ void MenuPedidos::run(){
 
             if(_archivoDetalle.buscarRegistro(obj.getIDDetalle()) >= 0){
                 cout<<"Ya existe un detalle con ese ID"<<endl;
+                break;
             }
-            else if(_archivoDetalle.grabarRegistro(obj)){
-                cout<<"Detalle guardado"<< endl;
+            bool existePedido=false;
+            int cantCabeceras=_archivoCabecera.contarRegistro();
+            for(int i=0; i<cantCabeceras; i++){
+                CabeceraPedido cab=_archivoCabecera.leerRegistro(i);
+                if(cab.getEstado() == true && cab.getIDPedido() == obj.getIDPedido()){
+                    existePedido = true;
+                }
+            }
+            if(existePedido == false){
+                cout<<"No existe un pedido con ese ID"<<endl;
+                break;
+            }
+            int posProd=_archivoProductos.buscarRegistro(obj.getIDProducto());
+            if(posProd < 0){
+                cout<<"No existe un producto con ese ID"<< endl;
+                break;
+            }
+            Productos prod=_archivoProductos.leerRegistro(posProd);
+            if(prod.getEstado() == false){
+                cout<<"Ese producto esta dado de baja"<< endl;
+                break;
+            }
+            if(obj.getCantidad() <= 0){
+                cout<<"La cantidad debe ser mayor a 0 (cero)"<< endl;
+                break;
+            }
+            if(obj.getCantidad() > prod.getStock()){
+                cout<<"Stock insuficiente. Stock disponible:"<< prod.getStock()<< endl;
+                break;
+            }
+            if(_archivoDetalle.grabarRegistro(obj)){
+                prod.setStock(prod.getStock() - obj.getCantidad());
+                _archivoProductos.modificarRegistro(prod, posProd);
+                cout<<"Detalle guardado. Nuevo stock: "<< prod.getStock()<<endl;
             }
             else{
                 cout<<"No se pudo guardar el detalle"<< endl;
