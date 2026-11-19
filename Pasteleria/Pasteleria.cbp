@@ -44,6 +44,8 @@
 		<Unit filename="ArchivoProductos.h" />
 		<Unit filename="ArchivoReabastecimiento.cpp" />
 		<Unit filename="ArchivoReabastecimiento.h" />
+		<Unit filename="CargarDatosPrueba.cpp" />
+		<Unit filename="CargarDatosPrueba.h" />
 		<Unit filename="ClsCabeceraPedido.cpp" />
 		<Unit filename="ClsCabeceraPedido.h" />
 		<Unit filename="ClsCliente.cpp" />

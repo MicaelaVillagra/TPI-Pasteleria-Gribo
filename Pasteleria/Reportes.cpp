@@ -9,7 +9,7 @@
 
 using namespace std;
 
-///reporte 1 mati
+
 
 void clienteConMasCompras()
 {
@@ -66,7 +66,7 @@ void clienteConMasCompras()
     delete []vCompras;
 }
 
-///reporte 2 mati
+
 
 void metodoPagoMasUtilizado()
 {
@@ -111,7 +111,7 @@ void metodoPagoMasUtilizado()
 
 }
 
-///######################
+
 
 void facturacionTotal()
 {
